@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Email & Password Manager</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="app" class="app light-mode">
+        <!-- Theme Toggle -->
+        <div class="theme-toggle-container">
+            <div class="theme-toggle">
+                <span class="theme-icon sun-icon">☀️</span>
+                <label class="switch">
+                    <input type="checkbox" id="themeToggle">
+                    <span class="slider"></span>
+                </label>
+                <span class="theme-icon moon-icon">🌙</span>
+            </div>
+        </div>
+
+        <!-- Header -->
+        <div class="header">
+            <h1 class="title">Email & Password Manager</h1>
+            <p class="subtitle">Manage credentials using JavaScript arrays with simultaneous validation</p>
+        </div>
+
+        <!-- Add Credentials Section -->
+        <div class="card add-credentials-card">
+            <div class="card-header">
+                <h2 class="card-title">
+                    <span class="icon rotating-icon">✨</span>
+                    Add New Credentials
+                </h2>
+                <p class="card-description">Add email and password pairs to the arrays (minimum 5 each recommended)</p>
+            </div>
+            <div class="card-content">
+                <div class="input-grid">
+                    <div class="input-group">
+                        <label for="newEmail">Email</label>
+                        <input type="email" id="newEmail" placeholder="user@example.com" class="input-field">
+                    </div>
+                    <div class="input-group">
+                        <label for="newPassword">Password</label>
+                        <input type="password" id="newPassword" placeholder="Enter password" class="input-field">
+                    </div>
+                </div>
+                <button id="addCredentialsBtn" class="btn btn-primary">Add Credentials to Arrays</button>
+            </div>
+        </div>
+
+        <!-- Arrays Display -->
+        <div class="arrays-container">
+            <!-- Emails Array -->
+            <div class="card array-card">
+                <div class="card-header">
+                    <h2 class="card-title">Emails Array</h2>
+                    <p class="card-description">
+                        Current emails: <span id="emailCount" class="count-badge">0</span>
+                        <span id="emailMinText"></span>
+                    </p>
+                </div>
+                <div class="card-content">
+                    <div id="emailsList" class="array-list">
+                        <p class="empty-message">No emails added yet</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Passwords Array -->
+            <div class="card array-card">
+                <div class="card-header">
+                    <h2 class="card-title">Passwords Array</h2>
+                    <p class="card-description">
+                        Current passwords: <span id="passwordCount" class="count-badge">0</span>
+                        <span id="passwordMinText"></span>
+                    </p>
+                </div>
+                <div class="card-content">
+                    <div id="passwordsList" class="array-list">
+                        <p class="empty-message">No passwords added yet</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Validation Section -->
+        <div class="card validation-card">
+            <div class="card-header">
+                <h2 class="card-title">
+                    <span class="icon pulsing-icon">⚡</span>
+                    Validate Credentials
+                </h2>
+                <p class="card-description">Check if email and password match simultaneously using array indices</p>
+            </div>
+            <div class="card-content">
+                <div class="input-grid">
+                    <div class="input-group">
+                        <label for="loginEmail">Email to Check</label>
+                        <input type="email" id="loginEmail" placeholder="Enter email to validate" class="input-field">
+                    </div>
+                    <div class="input-group">
+                        <label for="loginPassword">Password to Check</label>
+                        <input type="password" id="loginPassword" placeholder="Enter password to validate" class="input-field">
+                    </div>
+                </div>
+                <button id="validateBtn" class="btn btn-secondary">Validate Credentials</button>
+                <div id="validationResult" class="validation-result hidden"></div>
+            </div>
+        </div>
+
+        <!-- Array Status -->
+        <div class="card status-card">
+            <div class="card-header">
+                <h2 class="card-title">Array Status</h2>
+            </div>
+            <div class="card-content">
+                <div class="status-badges">
+                    <span id="emailBadge" class="badge badge-secondary">Emails: 0/5 minimum</span>
+                    <span id="passwordBadge" class="badge badge-secondary">Passwords: 0/5 minimum</span>
+                    <span id="syncBadge" class="badge badge-success">Arrays Synchronized: Yes</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Particles Container -->
+        <div id="particlesContainer" class="particles-container"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
